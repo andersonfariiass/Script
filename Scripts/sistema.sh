@@ -1,10 +1,10 @@
 #!/bin/bash
 #Primeiro scrip (Livro shell script)
 echo "Data e Hora"
-date
+date      #Exibe a data
 echo
 echo "Uso do disco:"
-df -h
+df -h     #Exibi o uso do disco
 echo
 echo "Usuários Logados:"
-whoami
+whoami #Exibi quais usuarios estao logados.
