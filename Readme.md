@@ -1,1 +1,1 @@
-#Apenas para um teste
+#Repositorio para a Disciplina de Programacao Script!
