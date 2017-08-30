@@ -19,9 +19,16 @@ do
 
 	if [ "$?" -ne 1 ]; then #Pega o ultimo resultado do ping com o $?
 		#NOME=$(nslookup "$REDE"."$END" | grep "name=" | cut -d \= -f 2 )
-		echo -e "$REDE.$END ON | `nslookup "$REDE"."$END" | fgrep "name" | cut -d \= -f2`"
+		#se o ultimo resultado do ping for diferente de 1, o hots esta no estado de UP
+		echo -e "$REDE.$END UP | `nslookup "$REDE"."$END" | fgrep "name" | cut -d \= -f2`"
+		IPON=$(($IPON + 1)) #Conta quanto hosts estao UP
 	else
-		echo -e "$REDE.$END OFF"
+		#Se o if for falso, o host esta no estado de UP
+		echo -e "$REDE.$END DOWN"
+		IPOFF=$(($IPOFF + 1)) #Conta quantos host estao DOWN
 	fi
-	END=$(($END + 1))
+	END=$(($END + 1)) #incrementa o endereco atual
 done
+
+echo "Hosts UP: $IPON"
+echo "Hosts OFF: $IPOFF"
