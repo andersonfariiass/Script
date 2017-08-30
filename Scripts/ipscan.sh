@@ -15,16 +15,16 @@ echo "IP Final: $REDE.$END_F"
 while [ "$END" -le "$END_F" ] #Enquando o ip inicial for menor que o ip final, ou seja, enquanto houver ips
 do
 
-	ping -c 1 -W 1 "$REDE"."$END" > /dev/null #o -c 1 retorna apenas um ping, o -W 1 segundo de espera por ping, "$REDE"."END_I" concatena o ip de rede com o ip do host
+	ping -c 1 "$REDE"."$END" > /dev/null #o -c 1 retorna apenas um ping, o -W 1 segundo de espera por ping, "$REDE"."END_I" concatena o ip de rede com o ip do host
 
 	if [ "$?" -ne 1 ]; then #Pega o ultimo resultado do ping com o $?
 		#NOME=$(nslookup "$REDE"."$END" | grep "name=" | cut -d \= -f 2 )
 		#se o ultimo resultado do ping for diferente de 1, o hots esta no estado de UP
-		echo -e "$REDE.$END UP | `nslookup "$REDE"."$END" | fgrep "name" | cut -d \= -f2`"
+		echo -e "$REDE.$END: Estado -> \033[0;32mUP\033[0m | `nslookup "$REDE"."$END" | fgrep "name" | cut -d \= -f2`"
 		IPON=$(($IPON + 1)) #Conta quanto hosts estao UP
 	else
 		#Se o if for falso, o host esta no estado de UP
-		echo -e "$REDE.$END DOWN"
+		echo -e "$REDE.$END: Estado -> \033[0;31mDOWN\033[0m"
 		IPOFF=$(($IPOFF + 1)) #Conta quantos host estao DOWN
 	fi
 	END=$(($END + 1)) #incrementa o endereco atual
