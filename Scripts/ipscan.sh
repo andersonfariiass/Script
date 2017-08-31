@@ -21,13 +21,13 @@ do
 		#NOME=$(nslookup "$REDE"."$END" | grep "name=" | cut -d \= -f 2 )
 		#se o ultimo resultado do ping for diferente de 1, o hots esta no estado de UP
 		echo -e "$REDE.$END: Estado -> \033[0;32mUP\033[0m | `nslookup "$REDE"."$END" | fgrep "name" | cut -d \= -f2`"
-		IPON=$(($IPON + 1)) #Conta quanto hosts estao UP
+		IPON=$(( $IPON + 1 )) #Conta quanto hosts estao UP
 	else
 		#Se o if for falso, o host esta no estado de UP
 		echo -e "$REDE.$END: Estado -> \033[0;31mDOWN\033[0m"
-		IPOFF=$(($IPOFF + 1)) #Conta quantos host estao DOWN
+		IPOFF=$(( $IPOFF + 1 )) #Conta quantos host estao DOWN
 	fi
-	END=$(($END + 1)) #incrementa o endereco atual
+	END=$(( $END + 1 )) #incrementa o endereco atual
 done
 
 echo "Hosts UP: $IPON"
