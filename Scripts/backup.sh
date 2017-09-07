@@ -4,8 +4,9 @@
 read -p "Qual o diretório a ser feito backup: " DIR
 echo
 
+USR=`whoami` #captura qual usuario está logado
 DATA=`date +%Y-%m-%d-%H:%M`
-cd /home/
+cd /home/$USR/
 tar -zcvf backup-$DATA.tar.gz $DIR
 #cd /tmp/
 NOME=backup-$DATA.tar.gz
