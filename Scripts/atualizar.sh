@@ -13,9 +13,7 @@ echo
 
 if [ $? -eq 0 ]; then
 	#echo "Disite a senha de admin!"
-	sudo apt update
-	echo
-	sudo apt upgrade -y
+	sudo apt update && sudo apt upgrade -y
 else
 	echo "Sem conexão, verique a conexão com a rede!"
 fi
