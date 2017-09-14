@@ -10,34 +10,28 @@ cd /home/$USR/ #entra no diretório do usuário logado
 
 
 #BOLL=true
-#NAME="backup-$DATA.tar.gz"
-#NUM=0
-#echo "-> $NUM"
-#ls
-#NAME="backup-$DATA.tar.gz"
-#echo "$NAME"
-#sleep 2
-#NAME="teste"
-#echo "$NAME"
-#while [ -e $NAME ];
-#do
-#	NUM=$(($NUM + 1))
-#	echo "incremento -> $NUM"
-#	NAME="backup-$DATA-$NUM.tar.gz"
-#	echo "$NAME"
-#	sleep 2
-#	echo "Arquivo backup-$DATA.tar.gz já existe!"
-#	echo "O arquivo será renomeado como backup-$DATA-$NUM.tar.gz"
-#	echo "iniciando Backup!"
-#	tar -zcvf backup-$DATA-$NUM.tar.gz $DIR
-	#NAME="backup-$DATA-$NUM.tar.gz"
-#done
-#	echo "Inicinando Backup!"
-#	cd /home/$USR
-#	tar -zcvf backup-$DATA.tar.gz $DIR
-	#sleep 1
-	#clear
-#	echo "Backup Concluido com sucesso!"
+NAME="backup-$DATA.tar.gz"
+sudo export $NAME
+NUM=0
+while [ -e $NAME ]
+do
+	NUM=$(($NUM + 1))
+	#echo "incremento -> $NUM"
+	NAME="backup-$DATA-$NUM.tar.gz"
+	#echo "$NAME"
+	sleep 2
+	echo "Arquivo backup-$DATA.tar.gz já existe!"
+	echo "O arquivo será renomeado como backup-$DATA-$NUM.tar.gz"
+	echo "iniciando Backup!"
+	tar -zcvf backup-$DATA-$NUM.tar.gz $DIR
+	NAME="backup-$DATA-$NUM.tar.gz"
+done
+	echo "Inicinando Backup!"
+	cd /home/$USR
+	tar -zcvf backup-$DATA.tar.gz $DIR
+	sleep 1
+	clear
+	echo "Backup Concluido com sucesso!"
 
 
 
