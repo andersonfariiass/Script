@@ -28,6 +28,7 @@ echo "$USR"
 echo
 
 echo "#----------Time---------#"
+echo "Hora atual: $(date)"
 echo "O sistema foi iniciado há: $(uptime -s)"
 echo "O sistema está ligado há: $(uptime -p)"
 echo 

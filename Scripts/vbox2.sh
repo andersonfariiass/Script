@@ -21,7 +21,7 @@ read -p "Informe o local do disco de intalação: " CISO
 echo "Aguarde um momento..."
 sleep 1
 clear
-echo "Agurade um momento..."
+echo "Aguarde um momento..."
 sleep 1
 clear
 echo "Criando HD..."
