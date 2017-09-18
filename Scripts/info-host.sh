@@ -19,7 +19,7 @@ echo "$CSCPU"
 echo
 
 echo "#---------Armazenamento----------#"
-echo "$(df -H)"
+echo "$(df -H | grep /sd)"
 echo
 
 echo "#----------Usários Conectados----------#"
