@@ -6,7 +6,7 @@
 read -p "Informe o IP para teste de conectivida (EX: 8.8.8.8): " IP
 
 ping -qc3 $IP >> /dev/null #Executa um ping rápido apenas para teste se o host está online
-USR=$(whoami) #Verifica qual usuário esta executando o shell
+#USR=$(whoami) #Verifica qual usuário esta executando o shell
 if [ $? -eq 0 ]; then
 	echo "O host está online"
 
